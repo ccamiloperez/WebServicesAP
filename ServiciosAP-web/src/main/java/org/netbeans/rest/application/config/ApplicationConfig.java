@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.udec.controller.PersonaController.class);
         resources.add(com.udec.exception.ExceptionHandler.class);
+        resources.add(com.udec.exception.NotModelFoundExceptionHandler.class);
         resources.add(com.udec.exception.NullPointerExceptionHandler.class);
         resources.add(com.udec.exception.WebApplicationExceptionHandler.class);
     }
