@@ -20,7 +20,8 @@ public class NullPointerExceptionHandler implements ExceptionMapper<NullPointerE
     @Override
     public Response toResponse(NullPointerException ex) {
         ErrorExceptionWrapper api = new ErrorExceptionWrapper((ex.getMessage() != null)? ex.getMessage():"NullPointerException",
-                "No se ha inicializado un objeto\n"+ex.getCause().getMessage(),Calendar.getInstance(), ex.getCause().getStackTrace());
+                "No se ha inicializado un objeto\n"+ex.getCause().getMessage(),Calendar.getInstance().getTime(),
+                ex.getCause().getStackTrace());
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(api).build();
     }
 

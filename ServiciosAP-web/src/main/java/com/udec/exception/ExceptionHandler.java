@@ -21,7 +21,7 @@ public class ExceptionHandler implements ExceptionMapper<Exception> {
     public Response toResponse(Exception ex) {
         ErrorExceptionWrapper api = new ErrorExceptionWrapper((ex.getMessage() != null) ? ex.getMessage():"No disponible",
         (ex.getCause().getMessage() != null) ? ex.getCause().getMessage(): "No disponible",
-        Calendar.getInstance(),ex.getCause().getStackTrace());
+        Calendar.getInstance().getTime(),ex.getCause().getStackTrace());
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(api).build();
     }
 }

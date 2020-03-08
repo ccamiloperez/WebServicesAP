@@ -21,7 +21,7 @@ public interface IPersona {
    public Persona obtenerPersona(int cedula);
    public void guardarPersona(Persona persona);
    public void editarPersona(Persona persona);
-   public void eliminarPersona(int cedula);
+   public boolean eliminarPersona(int cedula);
    
    
    

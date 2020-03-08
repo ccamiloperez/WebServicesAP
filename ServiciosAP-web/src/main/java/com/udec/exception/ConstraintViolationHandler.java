@@ -23,7 +23,7 @@ public class ConstraintViolationHandler implements ExceptionMapper<ConstraintVio
     @Override
     public Response toResponse(ConstraintViolationException ex) {
         ErrorExceptionWrapper api = new ErrorExceptionWrapper((ex.getMessage() !=null)? ex.getMessage():"ConstraintViolationException " , 
-                prepareMessage(ex),Calendar.getInstance(),ex.getStackTrace());
+                prepareMessage(ex),Calendar.getInstance().getTime(),ex.getStackTrace());
         return Response.status(Response.Status.BAD_REQUEST).entity(api).build();
     }
     

@@ -53,18 +53,19 @@ public class PersonaService implements IPersona{
     }
 
     @Override
-    public void eliminarPersona(int cedula) {
-        try{
+    public boolean eliminarPersona(int cedula) {
+        
             listado=archivo.leerArchivo();
-            for(Persona per: listado){
-             if(per.getCedula()==cedula){
-                listado.remove(per); 
+            Persona person;
+            for(int i=0;i<listado.size();i++){ 
+                person=listado.get(i);
+             if(person.getCedula()==cedula){
+                listado.remove(person);
+                archivo.crearArchivo(listado);
+                return true; 
              }
          }
-        }catch(Exception e){
-            archivo.crearArchivo(listado);
-            System.out.println("Eliminado");
-         }
+         return false;
     }
 
     @Override

@@ -5,7 +5,7 @@
  */
 package com.udec.exception;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -18,11 +18,11 @@ public class ErrorExceptionWrapper {
     
     private String descripcion;
     
-    private Calendar fecha;
+    private Date fecha;
     
     private StackTraceElement[] tracer;
 
-    public ErrorExceptionWrapper(String error, String descripcion, Calendar fecha, StackTraceElement[] tracer) {
+    public ErrorExceptionWrapper(String error, String descripcion, Date fecha, StackTraceElement[] tracer) {
         this.error = error;
         this.descripcion = descripcion;
         this.fecha = fecha;
@@ -47,14 +47,6 @@ public class ErrorExceptionWrapper {
         this.descripcion = descripcion;
     }
 
-    public Calendar getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Calendar fecha) {
-        this.fecha = fecha;
-    }
-
     public StackTraceElement[] getTracer() {
         return tracer;
     }
@@ -62,9 +54,13 @@ public class ErrorExceptionWrapper {
     public void setTracer(StackTraceElement[] tracer) {
         this.tracer = tracer;
     }
-    
-    
-    
-    
-    
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
 }

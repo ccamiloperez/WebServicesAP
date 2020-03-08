@@ -32,6 +32,7 @@ public class ApplicationConfig extends Application {
         resources.add(com.udec.controller.PersonaController.class);
         resources.add(com.udec.exception.ConstraintViolationHandler.class);
         resources.add(com.udec.exception.ExceptionHandler.class);
+        resources.add(com.udec.exception.NotFoundExceptionHandler.class);
         resources.add(com.udec.exception.NotModelFoundExceptionHandler.class);
         resources.add(com.udec.exception.NullPointerExceptionHandler.class);
         resources.add(com.udec.exception.WebApplicationExceptionHandler.class);

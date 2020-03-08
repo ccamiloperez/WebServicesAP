@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -39,7 +40,6 @@ public class PersonaController {
     @Path("/lista")
     @Produces(MediaType.APPLICATION_JSON)
     public Response obtenerLista(){
-        //return persona.listaPersonas();
             return Response.status(Response.Status.OK).entity(persona.listaPersonas()).build();       
     }
     
@@ -66,8 +66,10 @@ public class PersonaController {
     @Path("/eliminar/{cedula}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response eliminarPersona(@PathParam("cedula") int cedula){
-      persona.eliminarPersona(cedula);
-      return Response.status(Response.Status.NO_CONTENT).build();
+            boolean elimino;
+            elimino=persona.eliminarPersona(cedula);
+            if(elimino==true) return Response.status(Response.Status.NO_CONTENT).build();
+            else return Response.status(Response.Status.NOT_FOUND).build();
         
     }
     
