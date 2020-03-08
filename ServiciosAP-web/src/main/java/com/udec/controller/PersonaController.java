@@ -9,6 +9,7 @@ package com.udec.controller;
 
 
 import com.udec.entity.Persona;
+import com.udec.exception.NotModelFoundException;
 import com.udec.interfaces.IPersona;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -59,6 +60,7 @@ public class PersonaController {
     public Response obtenerPersonaCedula(@PathParam("cedula") int cedula){
         Persona per;
         per=persona.obtenerPersona(cedula);
+        if (per == null) throw new NotModelFoundException("Objeto no encontrado");
         return Response.status(Response.Status.OK).entity(per).build();
     }
     
@@ -69,7 +71,7 @@ public class PersonaController {
             boolean elimino;
             elimino=persona.eliminarPersona(cedula);
             if(elimino==true) return Response.status(Response.Status.NO_CONTENT).build();
-            else return Response.status(Response.Status.NOT_FOUND).build();
+            else throw new NotModelFoundException("Objeto no encontrado");
         
     }
     

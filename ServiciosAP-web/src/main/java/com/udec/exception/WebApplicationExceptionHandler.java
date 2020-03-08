@@ -21,7 +21,7 @@ public class WebApplicationExceptionHandler implements ExceptionMapper<WebApplic
     @Override
     public Response toResponse(WebApplicationException ex) {      
         ErrorExceptionWrapper api = new ErrorExceptionWrapper( (ex.getMessage() !=null)? ex.getMessage():" WebApplicationException",
-                "Error no encontro",Calendar.getInstance().getTime(),ex.getCause().getStackTrace());
+                "Error no encontro",Calendar.getInstance().getTime().toString(),ex.getCause().getStackTrace());
         return Response.status(Response.Status.NOT_FOUND).entity(api).build();        
     }
     

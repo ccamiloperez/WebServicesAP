@@ -20,7 +20,8 @@ public class NotModelFoundExceptionHandler implements ExceptionMapper<NotModelFo
     @Override
     public Response toResponse(NotModelFoundException exe) {
         ErrorExceptionWrapper ex = new ErrorExceptionWrapper((exe.toString()!=null) ? exe.getMessage():"NotModelFoundException", 
-            (exe.getCause().getMessage()!=null)? exe.getMessage():"No encontrado",Calendar.getInstance().getTime(),
+            (exe.getCause().getMessage()!=null)? exe.getMessage():"No encontrado",
+                Calendar.getInstance().getTime().toString(),
                 exe.getStackTrace());
         return Response.status(Response.Status.NOT_FOUND).entity(ex).build();
     }

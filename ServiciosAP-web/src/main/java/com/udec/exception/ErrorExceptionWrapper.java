@@ -5,7 +5,6 @@
  */
 package com.udec.exception;
 
-import java.util.Date;
 
 /**
  *
@@ -18,11 +17,11 @@ public class ErrorExceptionWrapper {
     
     private String descripcion;
     
-    private Date fecha;
+    private String fecha;
     
     private StackTraceElement[] tracer;
 
-    public ErrorExceptionWrapper(String error, String descripcion, Date fecha, StackTraceElement[] tracer) {
+    public ErrorExceptionWrapper(String error, String descripcion, String fecha, StackTraceElement[] tracer) {
         this.error = error;
         this.descripcion = descripcion;
         this.fecha = fecha;
@@ -55,12 +54,13 @@ public class ErrorExceptionWrapper {
         this.tracer = tracer;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
 
 }

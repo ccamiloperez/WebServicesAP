@@ -22,7 +22,7 @@ public class NotFoundExceptionHandler implements ExceptionMapper<NotFoundExcepti
     public Response toResponse(NotFoundException exception) {
          ErrorExceptionWrapper ex = new ErrorExceptionWrapper((exception.toString()!=null) ? exception.getMessage():"NotFoundException", 
             (exception.getCause().getMessage()!=null)? exception.getMessage():"No encontrado",
-                 Calendar.getInstance().getTime(),exception.getStackTrace());
+                 Calendar.getInstance().getTime().toString(),exception.getStackTrace());
         return Response.status(Response.Status.NOT_FOUND).entity(ex).build();
     }
     
