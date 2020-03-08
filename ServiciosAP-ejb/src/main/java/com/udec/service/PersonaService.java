@@ -68,10 +68,10 @@ public class PersonaService implements IPersona{
     }
 
     @Override
-    public void editarPersona(int cedula, Persona persona) {
+    public void editarPersona(Persona persona) {
         listado=archivo.leerArchivo();
         for(Persona per: listado){
-            if(per.getCedula()==cedula){
+            if(per.getCedula()==persona.getCedula()){
                 per.setCedula(persona.getCedula());
                 per.setNombre(persona.getNombre());
             }

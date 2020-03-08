@@ -72,11 +72,11 @@ public class PersonaController {
     }
     
     @PUT
-    @Path("/editar/{cedula}")
+    @Path("/editar")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response editarPersona(@PathParam("cedula") int cedula,Persona persona){
-        this.persona.editarPersona(cedula, persona);
+    public Response editarPersona(Persona persona){
+        this.persona.editarPersona(persona);
         return Response.status(Response.Status.OK).entity(persona).build();
     }
     
