@@ -30,10 +30,6 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.udec.controller.PersonaController.class);
-        resources.add(com.udec.excepciones.ConstraintViolationHandler.class);
-        resources.add(com.udec.excepciones.ExceptionHandler.class);
-        resources.add(com.udec.excepciones.NotAllowedExceptionHandler.class);
-        resources.add(com.udec.excepciones.NotModelFoundExceptionHandler.class);
         resources.add(com.udec.exception.ConstraintViolationHandler.class);
         resources.add(com.udec.exception.ExceptionHandler.class);
         resources.add(com.udec.exception.NotFoundExceptionHandler.class);
