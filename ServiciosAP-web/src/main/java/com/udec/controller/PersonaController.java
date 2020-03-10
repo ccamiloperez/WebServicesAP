@@ -50,6 +50,7 @@ public class PersonaController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response guardarPersona(@Valid Persona persona){
         this.persona.guardarPersona(persona);
+        //if() throw new NotModelFoundException(" Objeto no encontrado");        
         return Response.status(Response.Status.CREATED).entity(persona).build();
         
     }
